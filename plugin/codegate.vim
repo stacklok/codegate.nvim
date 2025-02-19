@@ -11,3 +11,6 @@ command! CodeGateListWorkspaces lua require('codegate').list_workspaces()
 
 " Register the command to set (activate) a workspace. Accepts one argument.
 command! -nargs=1 CodeGateSetWorkspace lua require('codegate').set_workspace(<f-args>)
+
+" Register the command to run the telescope picker
+command! CodeGateTelescopeWorkspaces lua require('codegate').telescope_codegate_workspace()
