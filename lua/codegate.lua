@@ -59,13 +59,12 @@ function M.set_workspace(workspace)
   })
 
   if res.status ~= 200 and res.status ~= 204 then
-    print("Error setting workspace. HTTP status: " .. res.status)
-    print("Response: " .. res.body)
+    print(string.format("Error setting workspace '%s'. HTTP status: %d", workspace, res.status))
+    print(string.format("Response for workspace '%s': %s", workspace, res.body))
     return
   end
 
-  print("Workspace activated: " .. workspace)
+  print(string.format("Workspace '%s' activated successfully.", workspace))
 end
 
 return M
-
