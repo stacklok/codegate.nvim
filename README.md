@@ -16,6 +16,8 @@ Using **lazy.nvim**, you can use the following code snippet to install and confi
 ```lua
 {
   "stacklok/codegate.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  lazy = false,
   config = function()
     require("codegate").setup({
       base_url = "http://127.0.0.1:8989",
@@ -30,4 +32,28 @@ Using **lazy.nvim**, you can use the following code snippet to install and confi
 - **Activate a Workspace**: Run `:CodeGateSetWorkspace <workspace>` to activate a specific workspace.
 - **Telescope Picker**: If **telescope.nvim** is installed, run `:CodeGateTelescopeWorkspaces` to open a fuzzy search picker.
 
+## Creating keymaps
+
+To work with CodeGate workspaces more efficiently, you can set up your own keymaps to
+switch between workspaces. Here are a few ideas that can help you get started!
+
+**Use a fuzzy finder to switch between workspaces**
+
+```lua
+vim.api.nvim_set_keymap('n', '<leader>cgg', ':CodeGateTelescopeWorkspaces<CR>', { noremap = true, silent = true })
+```
+
+**Switch to a specific workspace with a fixed shortcut**
+
+```lua
+vim.api.nvim_set_keymap('n', '<leader>cga', ':CodeGateSetWorkspace default<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cgs', ':CodeGateSetWorkspace integration-testing<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cgd', ':CodeGateSetWorkspace react-implementation<CR>', { noremap = true, silent = true })
+```
+
+**Switch to a specific workspace by typing the workspace name**
+
+```lua
+vim.api.nvim_set_keymap('n', '<leader>cgq', ':CodeGateSetWorkspace ', { noremap = true, silent = false }) -- notice `silent = false`
+```
 
