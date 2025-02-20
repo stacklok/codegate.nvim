@@ -1,6 +1,6 @@
 # codegate.nvim
 
-CodeGate.nvim is a Neovim plugin that interfaces with CodeGate—a secure local gateway for AI code generation that ensures best practices and protects your code and privacy.
+CodeGate.nvim is a Neovim plugin that interfaces with [CodeGate](https://github.com/stacklok/codegate)—a secure local gateway for AI code generation that ensures best practices and protects your code and privacy.
 
 ## Overview
 
